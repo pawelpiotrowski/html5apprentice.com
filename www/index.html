@@ -16,51 +16,51 @@
 		position: absolute;
 		top: 50%;
 		width: 20px;
-		-webkit-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
-		-moz-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
-		-ms-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
-		-o-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
-		transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+		-webkit-transition: left, top 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-moz-transition: left, top 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-ms-transition: left, top 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-o-transition: left, top 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		transition: left, top 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
 	}
 	#boringelement:hover { cursor: pointer; }
 </style>
 <script>
 	(function() {
 		var occurX = 0,
-			occurY = 0;
-		var checkOccur = function(n) {
+			occurY = 0,
+			checkOccur = function(n) {
 				return (n%2 == 0) ? true : false;
-		};
-		var slide = function(el) {
-			if(checkOccur(occurX)) {
-				(el.offsetLeft > 50) ? el.style.left = el.offsetLeft - Math.random()*103 + 'px' : el.style.left = el.offsetLeft + Math.random()*103 + 'px', occurX++;
-			} else {
-				if(el.offsetLeft < (window.innerWidth - 150)) {
-					el.style.left = el.offsetLeft + Math.random()*103 + 'px';
+			},
+			slide = function(el) {
+				if(checkOccur(occurX)) {
+					(el.offsetLeft > 50) ? el.style.left = el.offsetLeft - Math.random()*103 + 'px' : el.style.left = el.offsetLeft + Math.random()*103 + 'px', occurX++;
 				} else {
-					el.style.left = el.offsetLeft - Math.random()*103 + 'px'
-					occurX--;
+					if(el.offsetLeft < (window.innerWidth - 150)) {
+						el.style.left = el.offsetLeft + Math.random()*103 + 'px';
+					} else {
+						el.style.left = el.offsetLeft - Math.random()*103 + 'px'
+						occurX--;
+					}
 				}
-			}
-			if(checkOccur(occurY)) {
-				if(el.offsetTop > 50) {
-					el.style.top = el.offsetTop - Math.random()*90 + 'px';
+				if(checkOccur(occurY)) {
+					if(el.offsetTop > 50) {
+						el.style.top = el.offsetTop - Math.random()*90 + 'px';
+					} else {
+						el.style.top = el.offsetTop + Math.random()*90 + 'px';
+						occurY++;
+					}
 				} else {
-					el.style.top = el.offsetTop + Math.random()*90 + 'px';
-					occurY++;
+					if(el.offsetTop < (window.innerHeight - 150)) {
+						el.style.top = el.offsetTop + Math.random()*90 + 'px';
+					} else {
+						el.style.top = el.offsetTop - Math.random()*90 + 'px';
+						occurY--;
+					}
 				}
-			} else {
-				if(el.offsetTop < (window.innerHeight - 150)) {
-					el.style.top = el.offsetTop + Math.random()*90 + 'px';
-				} else {
-					el.style.top = el.offsetTop - Math.random()*90 + 'px';
-					occurY--;
-				}
-			}
-		};
-		var initBoredom = function() {
-			document.getElementById('boringelement').onclick = function() { slide(this); };
-		};
+			},
+			initBoredom = function() {
+				document.getElementById('boringelement').onclick = function() { slide(this); };
+			};
 		window.onload = initBoredom;
 	})();
 </script>
