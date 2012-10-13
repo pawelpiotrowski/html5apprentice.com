@@ -47,7 +47,7 @@ var myAPP = function() {
 			//this.el.setAttribute('id',this.id);
 			var originDot = this;
 			originDot.el.style.backgroundColor = "#"+(function(a,b){while(a--){b+=""+(~~(Math.random()*16)).toString(16);} return b;})(6,"");
-			originDot.el.style.top = (originDot.el.offsetTop + 10)+'px';
+			originDot.el.style.top = (originDot.el.offsetTop + 10)+'px'; // this correction should be only for first dot
 			originDot.el.style.left = (originDot.el.offsetLeft + 10)+'px';
 			originDot.el.onclick = function() {
 				var i = 0;
