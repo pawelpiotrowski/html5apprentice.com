@@ -38,26 +38,30 @@ var myAPP = function() {
 	function Dot(el) {
 		//this.id = 'id'+ ++counter,
 		this.el = el;
+		this.scene = document.getElementsByTagName('body')[0];
 		this.activateDot();
 	}
 	Dot.prototype = {
 		constructor: Dot,
 		activateDot: function() {
 			//this.el.setAttribute('id',this.id);
-			this.el.style.backgroundColor = "#"+(function(a,b){while(a--){b+=""+(~~(Math.random()*16)).toString(16);} return b;})(6,"");
-			this.el.onclick = function() {
-				slide(this);
+			var originDot = this;
+			originDot.el.style.backgroundColor = "#"+(function(a,b){while(a--){b+=""+(~~(Math.random()*16)).toString(16);} return b;})(6,"");
+			originDot.el.style.top = (originDot.el.offsetTop + 10)+'px';
+			originDot.el.style.left = (originDot.el.offsetLeft + 10)+'px';
+			originDot.el.onclick = function() {
 				var i = 0;
 				do {
 					var cloneDot, newDot;
 					cloneDot = this.cloneNode();
 					//cloneDot.id = '';
-					document.getElementsByTagName('body')[0].appendChild(cloneDot);
-					newDot = new Dot(cloneDot)
+					originDot.scene.appendChild(cloneDot);
+					newDot = new Dot(cloneDot);
 					slide(newDot.el);
 					i += 1;
 				}
 				while (i < 2);
+				slide(this);
 			}
 		}
 	}
