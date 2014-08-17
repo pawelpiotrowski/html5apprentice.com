@@ -10,10 +10,10 @@ body { background-color: #999; position: relative;}
 	background-color: red;
 	border-style: solid;
 	border-width: 1px;
-	height: 20px;
+	height: 40px;
 	padding: 0;
 	position: absolute;
-	width: 20px;
+	width: 40px;
 	-webkit-transition: all 500ms linear; 
 	-moz-transition: all 500ms linear; 
 	-ms-transition: all 500ms linear; 
@@ -22,14 +22,14 @@ body { background-color: #999; position: relative;}
 }
 .boringelement {
 	border-color: #666;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
 	-webkit-box-shadow: 1px 1px 1px 0px #888;
 	box-shadow: 1px 1px 1px 0px #888;
 	-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
 }
 .boringelement:hover { cursor: pointer; }
-.boringelement:first-child { left: 50%; margin: -10px 0 0 -10px; top: 50%; }
+.boringelement:first-child { left: 50%; margin: -20px 0 0 -20px; top: 50%; }
 
 /* Aides
 ----------------------------------------------- */
